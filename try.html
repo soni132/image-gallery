@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hover Caption with Color Grading</title>
+  <style>
+    .figure-container {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .figure-container img {
+      display: block;
+      width: 400px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    /* Color grading overlay */
+    .figure-container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(181, 19, 207, 0.2), rgba(251, 11, 83, 0.4)); /* Color tint */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    /* Caption styling */
+    /* .figure-container figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 8px 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-size: 14px;
+    } */
+
+    /* On hover: show overlay and caption */
+    .figure-container:hover::before {
+      opacity: 1;
+    }
+
+    /* .figure-container:hover figcaption {
+      opacity: 1;
+    } */
+
+    .figure-container:hover img {
+      transform: scale(1.02); /* slight zoom effect */
+    }
+  </style>
+</head>
+<body>
+
+<figure class="figure-container">
+  <img src="image2.jpeg" alt="Sample Image">
+  <figcaption>Caption appears on hover</figcaption>
+</figure>
+
+</body>
+</html>
